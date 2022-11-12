@@ -3,7 +3,7 @@ declare global {
         /**
          * @public
          */
-        export  interface Area {
+        export interface Area {
             'visible': boolean;
             'rejectTexture': boolean;
             'color1': string;
@@ -14,7 +14,7 @@ declare global {
         /**
          * @public
          */
-         interface BaseLayer {
+        interface BaseLayer {
             hide(): void;
             show(zIndex: number): void;
             add(vectors: VectorOverlay | VectorOverlay[]): void;
@@ -69,7 +69,7 @@ declare global {
          * @param {boolean} [opts.geodesic=false] 是否绘制成大地线，默认false
          * @param {boolean} [opts.showDir=false] 是否延路径显示白色方向箭头,默认false。建议折线宽度大于6时使用
          */
-        export  class BezierCurve extends CombinePolyline<Required<BezierCurveOptions>> {
+        export class BezierCurve extends CombinePolyline<Required<BezierCurveOptions>> {
             _prevZoom: number;
             readonly className: OverlayType;
             constructor(opts?: BezierCurveOptions);
@@ -136,7 +136,7 @@ declare global {
         /**
          * @public
          */
-        export  type BezierCurveOptions = LineSharedOptions & {
+        export type BezierCurveOptions = LineSharedOptions & {
             path?: number[][] | number[][][];
         };
 
@@ -149,7 +149,7 @@ declare global {
          * @param {LngLat} southWest 西南角经纬度
          * @param {LngLat} northEast 东北角经纬度值
          */
-        export  class Bounds {
+        export class Bounds {
             static from(bounds: Bounds[]): Bounds;
             static fromPolyline(originPath?: LngLatLike[]): Bounds | undefined;
             static fromMultiPolyline(originPath?: LngLatLike[][]): Bounds | undefined;
@@ -286,7 +286,7 @@ declare global {
          * @property {boolean} isWebsocket		是否支持WebSocket
          * @property {boolean} isWebGL	是否支持webgl
          */
-        export  const Browser: {
+        export const Browser: {
             ua: string;
             mobile: boolean;
             plat: string;
@@ -366,7 +366,7 @@ declare global {
          * });
          * map.addLayer(buildingLayer);
          */
-        export  class BuildingLayer extends BuildingLayer_2 {
+        export class BuildingLayer extends BuildingLayer_2 {
             constructor(opts?: Partial<BuildingLayerOpts> | any);
             /**
              * 设置楼块图层样式 </br>
@@ -409,7 +409,7 @@ declare global {
         /**
          * @public
          */
-         class BuildingLayer_2 extends Layer {
+        class BuildingLayer_2 extends Layer {
             CLASS_NAME: string;
             constructor();
 
@@ -425,7 +425,7 @@ declare global {
          * @export
          * @interface BuildingLayerOpts
          */
-        export  interface BuildingLayerOpts {
+        export interface BuildingLayerOpts {
             zooms?: [number, number];
             opacity?: number;
             heightFactor?: number;
@@ -445,7 +445,7 @@ declare global {
          * @public
          * @interface BuildingStyleOptions
          */
-        export  interface BuildingStyleOptions {
+        export interface BuildingStyleOptions {
             'hideWithoutStyle': boolean;
             'areas': Area[];
         }
@@ -454,7 +454,7 @@ declare global {
          * @public
          * @private
          */
-        export  class BuryPoint {
+        export class BuryPoint {
             static 'add'(...args: any[]): void;
         }
 
@@ -473,7 +473,7 @@ declare global {
          * @extends {ImageLayer}
          * @public
          */
-        export  class CanvasLayer extends CoreImageLayer {
+        export class CanvasLayer extends CoreImageLayer {
             constructor(opts?: CanvasLayerOptions);
             /**
              * 修改显示的Canvas
@@ -524,7 +524,7 @@ declare global {
         /**
          * @public
          */
-        export  interface CanvasLayerOptions {
+        export interface CanvasLayerOptions {
 
 
             zooms?: [number, number];
@@ -561,7 +561,7 @@ declare global {
          * 虚线：[10,10] ，[10,10] 表示10个像素的实线和10个像素的空白（如此反复）组成的虚线
          * 点画线：[10,2,10]， [10,2,10] 表示10个像素的实线和2个像素的空白 + 10个像素的实线和10个像素的空白 （如此反复）组成的虚线
          */
-        export  class Circle extends CombinePolygon<Required<CircleOptions>> {
+        export class Circle extends CombinePolygon<Required<CircleOptions>> {
             readonly className: OverlayType;
 
             _opts: Required<CircleOptions>;
@@ -656,7 +656,7 @@ declare global {
          * @param {boolean} [opts.draggable=false] 设置多边形是否可拖拽移动，默认为false
          * @param {object} [opts.extData]  用户自定义属性，支持JavaScript API任意数据类型，如Polygon的id等
          */
-        export  class CircleMarker extends CoreCircleMarker {
+        export class CircleMarker extends CoreCircleMarker {
             className: OverlayType;
 
 
@@ -727,7 +727,7 @@ declare global {
         /**
          * @public
          */
-        export  type CircleMarkerOptions = PolygonSharedOptions & {
+        export type CircleMarkerOptions = PolygonSharedOptions & {
             center?: LngLatLike;
             radius?: number;
         };
@@ -736,7 +736,7 @@ declare global {
          * @public
          * @private
          */
-        export  type CircleOptions = PolygonSharedOptions & {
+        export type CircleOptions = PolygonSharedOptions & {
             center?: LngLatLike;
             radius?: number;
         };
@@ -747,7 +747,7 @@ declare global {
          * @public
          * @private
          */
-         abstract class CombinePolygon<T = any> extends CorePolygon {
+        abstract class CombinePolygon<T = any> extends CorePolygon {
 
             abstract 'setOptions'(optsArg: any): void;
             /**
@@ -818,7 +818,7 @@ declare global {
          * @public
          * @private
          */
-         abstract class CombinePolyline<T> extends CorePolyline {
+        abstract class CombinePolyline<T> extends CorePolyline {
 
 
             /**
@@ -855,7 +855,7 @@ declare global {
          * // 在地图上指定位置打开右键菜单
          * contextMenu.open(map, [116.397389,39.909466]);
          */
-        export  class ContextMenu extends OverlayDOM {
+        export class ContextMenu extends OverlayDOM {
             type: string;
             className: string;
             constructor(opts?: OverlayOptions);
@@ -919,7 +919,7 @@ declare global {
          * @class Control
          * @extends {Event}
          */
-        export  abstract class Control extends Event {
+        export abstract class Control extends Event {
             map: Map_2;
 
             constructor(opts: ControlConfig);
@@ -974,7 +974,7 @@ declare global {
         /**
          * @public
          */
-        export  interface ControlConfig {
+        export interface ControlConfig {
             position: {
                 top?: string;
                 left?: string;
@@ -1007,13 +1007,13 @@ declare global {
          *   }
          * });
          */
-        export  function convertFrom(lnglat: any, type: string, cbk: any): void;
+        export function convertFrom(lnglat: any, type: string, cbk: any): void;
 
         /**
          * @public
          * @private
          */
-         abstract class CoreCircleMarker extends VectorOverlay {
+        abstract class CoreCircleMarker extends VectorOverlay {
             readonly className: OverlayType;
 
 
@@ -1041,7 +1041,7 @@ declare global {
          * @public
          * @private
          */
-         class CoreCustomLayer extends Layer {
+        class CoreCustomLayer extends Layer {
             CLASS_NAME: string;
 
 
@@ -1069,7 +1069,7 @@ declare global {
          * @public
          * @private
          */
-         class CoreImageLayer extends Layer {
+        class CoreImageLayer extends Layer {
 
             CLASS_NAME: string;
             constructor(opts: ImageLayerOptions);
@@ -1082,7 +1082,7 @@ declare global {
          * @public
          * @private
          */
-         class CoreMap extends Event {
+        class CoreMap extends Event {
             static readonly defaultZooms: [number, number];
             className: string;
 
@@ -1423,7 +1423,7 @@ declare global {
          * @public
          * @private
          */
-         abstract class CorePolygon extends VectorOverlay {
+        abstract class CorePolygon extends VectorOverlay {
 
 
 
@@ -1446,7 +1446,7 @@ declare global {
          * @public
          * @private
          */
-         abstract class CorePolyline extends VectorOverlay {
+        abstract class CorePolyline extends VectorOverlay {
 
 
 
@@ -1468,7 +1468,7 @@ declare global {
          * @public
          * @private
          */
-        export  const createDefaultLayer: (opts?: any) => TileLayer | NebulaLayer;
+        export const createDefaultLayer: (opts?: any) => TileLayer | NebulaLayer;
 
         /**
          * 自定义图层是一种完全由开发者来指定绘制方法的图层 </br>
@@ -1496,14 +1496,14 @@ declare global {
          * })
          * @public
          */
-        export  class CustomLayer extends CoreCustomLayer {
+        export class CustomLayer extends CoreCustomLayer {
             constructor(canvas: HTMLCanvasElement, opts: CustomLayerOption);
         }
 
         /**
          * @public
          */
-        export  interface CustomLayerOption {
+        export interface CustomLayerOption {
             opacity?: number;
             visible?: boolean;
             zIndex?: number;
@@ -1584,7 +1584,7 @@ declare global {
          * @class DistrictLayer
          * @extends {Layer}
          */
-        export  class DistrictLayer extends CoreDistrictLayer {
+        export class DistrictLayer extends CoreDistrictLayer {
             static 'World': typeof WorldLayer;
             static 'Country': typeof CountryLayer;
             static 'Province': typeof ProvinceLayer;
@@ -1672,7 +1672,7 @@ declare global {
          * @export
          * @interface DistrictLayerOptions
          */
-        export  interface DistrictLayerOptions {
+        export interface DistrictLayerOptions {
             id?: string;
             url?: string;
             tileUrl?: string;
@@ -1693,7 +1693,7 @@ declare global {
         /**
          * @public
          */
-        export  interface DistrictLayerStyle {
+        export interface DistrictLayerStyle {
             'stroke-width'?: number;
             'coastline-stroke'?: string;
             'nation-stroke'?: string;
@@ -1709,7 +1709,7 @@ declare global {
          * @public
          * @private
          */
-         interface DistrictSourceSpec {
+        interface DistrictSourceSpec {
             readonly id: string;
             type: string;
             tileSize: number;
@@ -1724,7 +1724,7 @@ declare global {
          * @public
          * @constant
          */
-        export  const DomUtil: {
+        export const DomUtil: {
             /**
              * 获取DOM元素的大小
              * @name getViewport
@@ -1871,7 +1871,7 @@ declare global {
          * @public
          * @private
          */
-         abstract class DragObject extends Overlay {
+        abstract class DragObject extends Overlay {
 
 
 
@@ -1909,7 +1909,7 @@ declare global {
          * 虚线：[10,10] ，[10,10] 表示10个像素的实线和10个像素的空白（如此反复）组成的虚线
          * 点画线：[10,2,10]， [10,2,10] 表示10个像素的实线和2个像素的空白 + 10个像素的实线和10个像素的空白 （如此反复）组成的虚线
          */
-        export  class Ellipse extends CombinePolygon<Required<EllipseOptions>> {
+        export class Ellipse extends CombinePolygon<Required<EllipseOptions>> {
             readonly className: OverlayType;
 
 
@@ -1981,7 +1981,7 @@ declare global {
         /**
          * @public
          */
-        export  type EllipseOptions = PolygonSharedOptions & {
+        export type EllipseOptions = PolygonSharedOptions & {
             center?: LngLatLike;
             radius?: [number, number];
         };
@@ -2013,7 +2013,7 @@ declare global {
          * // 覆盖物绑定事件判断
          * polygon.hasEvents('mousemove',console.log);
          */
-        export  class Event implements Eventable {
+        export class Event implements Eventable {
             /**
              * @private
              */
@@ -2096,7 +2096,7 @@ declare global {
          * @public
          * @private
          */
-        export  interface Eventable {
+        export interface Eventable {
             on(...arg: any[]): void;
             off(...arg: any[]): void;
             emit(...arg: any[]): void;
@@ -2106,7 +2106,7 @@ declare global {
          * @public
          * @private
          */
-         interface Eventable_2 {
+        interface Eventable_2 {
             on(...arg: any[]): void;
             off(...arg: any[]): void;
             emit(...arg: any[]): void;
@@ -2116,7 +2116,7 @@ declare global {
          * @public
          * @private
          */
-        export  const extend: (dest: any, ...args: any) => any;
+        export const extend: (dest: any, ...args: any) => any;
 
         /**
          * 图块切片加载完成事件
@@ -2145,7 +2145,7 @@ declare global {
          * @extends {TileLayer}
          * @public
          */
-         class Flexible extends TileLayer {
+        class Flexible extends TileLayer {
             CLASS_NAME: string;
             constructor(opts?: FlexibleLayerOptions);
 
@@ -2155,7 +2155,7 @@ declare global {
         /**
          * @public
          */
-        export  interface FlexibleLayerOptions {
+        export interface FlexibleLayerOptions {
 
 
 
@@ -2176,22 +2176,22 @@ declare global {
          * @name GeometryUtil
          * @constant GeometryUtil
          */
-        export  const GeometryUtil: IGeometryUtil;
+        export const GeometryUtil: IGeometryUtil;
 
         /**
          * @public
          */
-        export  var getConfig: getConfigType;
+        export var getConfig: getConfigType;
 
         /**
          * @public
          */
-         type GLCustomInitFunc = (gl: WebGLRenderingContext) => void;
+        type GLCustomInitFunc = (gl: WebGLRenderingContext) => void;
 
         /**
          * @public
          */
-         class GLCustomLayer extends Layer {
+        class GLCustomLayer extends Layer {
             CLASS_NAME: string;
 
 
@@ -2206,7 +2206,7 @@ declare global {
         /**
          * @public
          */
-         interface GlCustomLayerOptions {
+        interface GlCustomLayerOptions {
             zIndex: number;
             opacity: number;
             visible: boolean;
@@ -2218,19 +2218,19 @@ declare global {
         /**
          * @public
          */
-         type GLCustomRenderFunc = (gl: WebGLRenderingContext, frameState: any, viewState: any, context: any) => void;
+        type GLCustomRenderFunc = (gl: WebGLRenderingContext, frameState: any, viewState: any, context: any) => void;
 
         /**
          * @public
          */
-         class Heatmap {
+        class Heatmap {
             constructor();
         }
 
         /**
          * @public
          */
-        export  interface HttpOptions {
+        export interface HttpOptions {
             callback?: string;
             type?: string;
             charset?: string;
@@ -2242,7 +2242,7 @@ declare global {
          * @export
          * @class Icon
          */
-        export  class Icon {
+        export class Icon {
             CLASS_NAME: string;
             constructor(opts: IconOpts);
             'setImageSize'(size: Size | Vector2): void;
@@ -2260,7 +2260,7 @@ declare global {
         /**
          * @public
          */
-        export  interface IconOpts {
+        export interface IconOpts {
             size?: Size | Vector2 | number[];
             imageOffset?: Pixel | Vector2;
             image: string;
@@ -2270,7 +2270,7 @@ declare global {
         /**
          * @public
          */
-        export  interface IGeometryUtil {
+        export interface IGeometryUtil {
             /**
              * 计算两个经纬度点之间的实际距离。单位：米
              *
@@ -2543,7 +2543,7 @@ declare global {
          * @extends {Layer}
          * @public
          */
-        export  class ImageLayer extends CoreImageLayer {
+        export class ImageLayer extends CoreImageLayer {
             constructor(opts?: ImageLayerOptions);
             /**
              * 获取图片的地址
@@ -2585,7 +2585,7 @@ declare global {
         /**
          * @public
          */
-        export  interface ImageLayerOptions {
+        export interface ImageLayerOptions {
 
             zooms?: [number, number];
             url: string;
@@ -2600,7 +2600,7 @@ declare global {
          * @public
          * @private
          */
-         class IndoorLayer extends IndoorLayer_base {
+        class IndoorLayer extends IndoorLayer_base {
             CLASS_NAME: string;
 
 
@@ -2681,7 +2681,7 @@ declare global {
          * @param {Boolean} opts.hideFloorBar 是否隐藏楼层切换控件，默认值：false
          *
          */
-        export  class IndoorMap extends IndoorLayer {
+        export class IndoorMap extends IndoorLayer {
             CLASS_NAME: string;
 
 
@@ -2812,7 +2812,7 @@ declare global {
         /**
          * @public
          */
-        export  interface IndoorMapOptions {
+        export interface IndoorMapOptions {
             zIndex?: number;
             opacity?: number;
             cursor?: string;
@@ -2825,7 +2825,7 @@ declare global {
          * @export
          * @interface InfoOptions
          */
-        export  interface InfoOptions extends OverlayOptions {
+        export interface InfoOptions extends OverlayOptions {
             isCustom?: boolean;
             closeWhenClickMap?: boolean;
             autoMove?: boolean;
@@ -2858,7 +2858,7 @@ declare global {
          * // 在地图上打开信息窗体
          * infoWindow.open(map, [116.397389,39.909466]);
          */
-        export  class InfoWindow extends OverlayDOM {
+        export class InfoWindow extends OverlayDOM {
             type: string;
             constructor(opts?: InfoOptions);
             /**
@@ -3002,7 +3002,7 @@ declare global {
          * @public
          * @private
          */
-         interface IVectorOverlay {
+        interface IVectorOverlay {
             hide(): void;
             show(): void;
             setOptions(arg: any): void;
@@ -3081,7 +3081,7 @@ declare global {
          * // 将 LabelsLayer 添加到地图上
          * map.add(labelsLayer);
          */
-        export  class LabelMarker extends Overlay {
+        export class LabelMarker extends Overlay {
 
 
 
@@ -3357,7 +3357,7 @@ declare global {
         /**
          * @public
          */
-        export  interface LabelMarkerIconOptions {
+        export interface LabelMarkerIconOptions {
             image: string;
             size?: Vector2 | Size;
             clipOrigin?: Vector2 | Pixel;
@@ -3370,7 +3370,7 @@ declare global {
         /**
          * @public
          */
-        export  interface LabelMarkerOptions {
+        export interface LabelMarkerOptions {
             name?: string;
             position: Vector2 | LngLat;
             zooms?: Vector2;
@@ -3388,7 +3388,7 @@ declare global {
         /**
          * @public
          */
-        export  interface LabelMarkerTextOptions {
+        export interface LabelMarkerTextOptions {
             content: string;
             direction?: string;
             offset?: Vector2 | Pixel;
@@ -3399,7 +3399,7 @@ declare global {
         /**
          * @public
          */
-         interface LabelOptions {
+        interface LabelOptions {
             content: string;
             offset: Pixel | Vector2 | number[];
             direction: string;
@@ -3410,7 +3410,7 @@ declare global {
          * @public
          * @private
          */
-        export  class LabelsLayer extends Layer {
+        export class LabelsLayer extends Layer {
             CLASS_NAME: string;
 
 
@@ -3464,7 +3464,7 @@ declare global {
          * // 将标注层添加到地图上
          * map.add(labelsLayer);
          */
-         class LabelsLayer_2 extends LabelsLayer {
+        class LabelsLayer_2 extends LabelsLayer {
             constructor(opts?: LabelsLayerOptions);
             /**
              * 获取标注层是否支持内部标注避让
@@ -3618,7 +3618,7 @@ declare global {
         /**
          * @public
          */
-        export  interface LabelsLayerOptions {
+        export interface LabelsLayerOptions {
             visible?: boolean;
             zIndex?: number;
             opacity?: number;
@@ -3633,7 +3633,7 @@ declare global {
          * @public
          * @private
          */
-         abstract class Layer extends Event {
+        abstract class Layer extends Event {
 
             CLASS_NAME: string;
 
@@ -3764,7 +3764,7 @@ declare global {
          * @export
          * @public
          */
-        export  class LayerGroup extends Event {
+        export class LayerGroup extends Event {
             constructor(layers?: Layer[]);
             /**
              * 添加到地图上面
@@ -3915,7 +3915,7 @@ declare global {
         /**
          * @public
          */
-         interface LayerState {
+        interface LayerState {
             opacity: number;
             visible?: boolean;
             layer?: Layer;
@@ -3930,18 +3930,18 @@ declare global {
         /**
          * @public
          */
-         type LineCapEndType = 'butt' | 'round' | 'square';
+        type LineCapEndType = 'butt' | 'round' | 'square';
 
         /**
          * @public
          */
-         type LineJoinType = 'miter' | 'bevel' | 'round';
+        type LineJoinType = 'miter' | 'bevel' | 'round';
 
         /**
          * @public
          * @private
          */
-        export  interface LineSharedOptions {
+        export interface LineSharedOptions {
 
             zIndex?: number;
             bubble?: boolean;
@@ -3983,7 +3983,7 @@ declare global {
          * @example
          * var lnglat = new AMap.LngLat(116, 39);
          */
-        export  class LngLat {
+        export class LngLat {
             static from(point: LngLatLike): LngLat;
             className: string;
 
@@ -4147,7 +4147,7 @@ declare global {
         /**
          * @public
          */
-        export  type LngLatLike = LngLat | [number, number];
+        export type LngLatLike = LngLat | [number, number];
 
         /**
          * 地图对象类，封装了地图的属性设置、图层变更、事件交互等接口的类。</br>
@@ -4223,7 +4223,7 @@ declare global {
          * })
          *
          */
-         class Map_2 extends CoreMap {
+        class Map_2 extends CoreMap {
 
 
 
@@ -4800,7 +4800,7 @@ declare global {
          * @export
          * @interface MapOptions
          */
-        export  interface MapOptions {
+        export interface MapOptions {
             zoom?: number;
             center?: [number, number];
             rotation?: number;
@@ -4889,7 +4889,7 @@ declare global {
          * });
          * map.add(marker);
          */
-        export  class Marker extends OverlayDOM {
+        export class Marker extends OverlayDOM {
             type: string;
             className: string;
             constructor(opts?: MarkerOptions);
@@ -5376,7 +5376,7 @@ declare global {
          * @interface MarkerOptions
          * @public
          */
-        export  interface MarkerOptions extends OverlayOptions {
+        export interface MarkerOptions extends OverlayOptions {
             icon?: Icon | string;
             title?: string;
             label?: LabelOptions;
@@ -5391,7 +5391,7 @@ declare global {
         /**
          * @public
          */
-        export  interface MassData {
+        export interface MassData {
             lnglat: LngLat;
             style?: number;
         }
@@ -5399,7 +5399,7 @@ declare global {
         /**
          * @public
          */
-        export  interface MassMarkersOptions {
+        export interface MassMarkersOptions {
             zIndex?: number;
             opacity?: number;
             zooms?: [number, number];
@@ -5411,7 +5411,7 @@ declare global {
         /**
          * @public
          */
-        export  interface MassMarkersStyleOptions {
+        export interface MassMarkersStyleOptions {
             url: string;
             size: Vector2 | Size;
             rotation: number;
@@ -5450,7 +5450,7 @@ declare global {
          * // 将海量点实例添加到地图上
          * map.add(massMarks);
          */
-        export  class MassMarks extends Event {
+        export class MassMarks extends Event {
             CLASS_NAME: string;
             constructor(data: MassData[], opts: MassMarkersOptions);
             /**
@@ -5591,7 +5591,7 @@ declare global {
         /**
          * @public
          */
-        export  interface NameSpace {
+        export interface NameSpace {
             createDefaultLayer: typeof createDefaultLayer;
             Map: typeof Map_2;
             ImageLayer: typeof ImageLayer;
@@ -5647,7 +5647,7 @@ declare global {
          * @public
          * @private
          */
-        export  class NebulaLayer extends Layer {
+        export class NebulaLayer extends Layer {
             CLASS_NAME: string;
 
 
@@ -5664,7 +5664,7 @@ declare global {
          * @public
          * @private
          */
-         abstract class Overlay extends Event {
+        abstract class Overlay extends Event {
 
 
 
@@ -5679,7 +5679,7 @@ declare global {
          * @public
          * @private
          */
-         class OverlayDOM extends Overlay {
+        class OverlayDOM extends Overlay {
             type: string;
             className: string;
             get CLASS_NAME(): string;
@@ -5728,7 +5728,7 @@ declare global {
          * @class OverlayGroup
          * @param {Array<Overlay>} overlays
          */
-        export  class OverlayGroup implements IVectorOverlay {
+        export class OverlayGroup implements IVectorOverlay {
             get CLASS_NAME(): OverlayType;
 
             constructor(overlays?: Array<VectorOverlay | OverlayDOM>);
@@ -5845,7 +5845,7 @@ declare global {
          * @name OverlayOptions
          * @interface OverlayOptions
          */
-        export  interface OverlayOptions {
+        export interface OverlayOptions {
             map?: Map_2;
             position?: Vector2 | LngLat;
             content?: string | HTMLElement;
@@ -5870,7 +5870,7 @@ declare global {
          * @public
          * @private
          */
-         type OverlayType = 'Overlay' | 'Overlay.Polygon' | 'Overlay.CorePolygon' | 'Overlay.CorePolyline' | 'Overlay.Rectangle' | 'Overlay.Ellipse' | 'Overlay.Circle' | 'Overlay.CircleMarker' | 'Overlay.Polyline' | 'Overlay.BezierCurve' | 'Overlay.OverlayGroup' | 'Overlay.GeoJSON';
+        type OverlayType = 'Overlay' | 'Overlay.Polygon' | 'Overlay.CorePolygon' | 'Overlay.CorePolyline' | 'Overlay.Rectangle' | 'Overlay.Ellipse' | 'Overlay.Circle' | 'Overlay.CircleMarker' | 'Overlay.Polyline' | 'Overlay.BezierCurve' | 'Overlay.OverlayGroup' | 'Overlay.GeoJSON';
 
         /**
          * 像素坐标，确定地图上的一个像素点。
@@ -5880,7 +5880,7 @@ declare global {
          * @param {number} x
          * @param {number} y
          */
-        export  class Pixel {
+        export class Pixel {
             className: string;
             x: number;
             y: number;
@@ -5940,7 +5940,7 @@ declare global {
         /**
          * @public
          */
-        export  var plugin: (plugins: string | string[], cb: any) => void;
+        export var plugin: (plugins: string | string[], cb: any) => void;
 
         /**
          * 构造多边形对象，通过PolygonOptions指定多边形样式
@@ -5971,7 +5971,7 @@ declare global {
          * 虚线：[10,10] ，[10,10] 表示10个像素的实线和10个像素的空白（如此反复）组成的虚线
          * 点画线：[10,2,10]， [10,2,10] 表示10个像素的实线和2个像素的空白 + 10个像素的实线和10个像素的空白 （如此反复）组成的虚线
          */
-        export  class Polygon extends CorePolygon {
+        export class Polygon extends CorePolygon {
             className: OverlayType;
 
 
@@ -6075,7 +6075,7 @@ declare global {
         /**
          * @public
          */
-        export  type PolygonOptions = PolygonSharedOptions & {
+        export type PolygonOptions = PolygonSharedOptions & {
             path?: LngLatLike[] | LngLatLike[][] | LngLatLike[][][];
         };
 
@@ -6084,7 +6084,7 @@ declare global {
          * @interface
          * @public
          */
-        export  interface PolygonSharedOptions {
+        export interface PolygonSharedOptions {
 
             zIndex?: number;
             bubble?: boolean;
@@ -6138,7 +6138,7 @@ declare global {
          * @class Polyline
          * @classdesc 折线，支持单条和多条折线
          */
-        export  class Polyline extends CorePolyline {
+        export class Polyline extends CorePolyline {
             readonly className: OverlayType;
             _opts: Required<PolylineOptions>;
 
@@ -6221,14 +6221,14 @@ declare global {
          * @public
          * @private
          */
-        export  type PolylineOptions = LineSharedOptions & {
+        export type PolylineOptions = LineSharedOptions & {
             path?: LngLatLike[] | LngLatLike[][];
         };
 
         /**
          * @public
          */
-         class RasterLayer extends Layer {
+        class RasterLayer extends Layer {
             CLASS_NAME: string;
             constructor(opts: TileLayerOptions);
 
@@ -6263,7 +6263,7 @@ declare global {
          * 虚线：[10,10] ，[10,10] 表示10个像素的实线和10个像素的空白（如此反复）组成的虚线
          * 点画线：[10,2,10]， [10,2,10] 表示10个像素的实线和2个像素的空白 + 10个像素的实线和10个像素的空白 （如此反复）组成的虚线
          */
-        export  class Rectangle extends CombinePolygon<Required<RectangleOptions>> {
+        export class Rectangle extends CombinePolygon<Required<RectangleOptions>> {
             readonly className: OverlayType;
             /**
              * @private
@@ -6318,7 +6318,7 @@ declare global {
          * @public
          * @private
          */
-        export  type RectangleOptions = PolygonSharedOptions & {
+        export type RectangleOptions = PolygonSharedOptions & {
             bounds?: Bounds;
         };
 
@@ -6346,7 +6346,7 @@ declare global {
          * @extends {TileLayer}
          * @public
          */
-         class RoadNet extends TileLayer {
+        class RoadNet extends TileLayer {
             CLASS_NAME: string;
             constructor(opts?: RoadnetLayerOptions);
             /**
@@ -6371,7 +6371,7 @@ declare global {
         /**
          * @public
          */
-        export  interface RoadnetLayerOptions {
+        export interface RoadnetLayerOptions {
 
 
 
@@ -6400,7 +6400,7 @@ declare global {
          * @class Satellite
          * @extends {TileLayer}
          */
-         class Satellite extends TileLayer {
+        class Satellite extends TileLayer {
             CLASS_NAME: string;
             constructor(opts?: SatelliteLayerOptions);
 
@@ -6415,7 +6415,7 @@ declare global {
         /**
          * @public
          */
-        export  interface SatelliteLayerOptions {
+        export interface SatelliteLayerOptions {
 
 
 
@@ -6434,7 +6434,7 @@ declare global {
          * @param {number} width 宽度
          * @param {number} height 高度
          */
-        export  class Size {
+        export class Size {
             className: string;
             width: number;
             height: number;
@@ -6526,7 +6526,7 @@ declare global {
          * });
          * map.add(text);
          */
-        export  class Text extends Marker {
+        export class Text extends Marker {
             className: string;
             type: string;
             constructor(opts?: TextOptions);
@@ -6560,7 +6560,7 @@ declare global {
         /**
          * @public
          */
-        export  interface TextOptions extends MarkerOptions {
+        export interface TextOptions extends MarkerOptions {
             text?: string;
             style?: any;
         }
@@ -6568,7 +6568,7 @@ declare global {
         /**
          * @public
          */
-        export  interface TextStyleOptions {
+        export interface TextStyleOptions {
             fontSize?: number;
             fontFamily?: string;
             fontWeight?: string;
@@ -6607,7 +6607,7 @@ declare global {
          * 函数参数z为地图缩放级别，x,y分别为相应缩放级别下图块横向、纵向索引号， </br>
          * 该属性可以用来改变取图地址，实现自定义栅格图。
          */
-        export  class TileLayer extends RasterLayer {
+        export class TileLayer extends RasterLayer {
             /**
              * @private
              */
@@ -6656,7 +6656,7 @@ declare global {
          * @export
          * @interface TileLayerOptions
          */
-        export  interface TileLayerOptions {
+        export interface TileLayerOptions {
 
             url?: string;
             tileUrl?: string;
@@ -6706,7 +6706,7 @@ declare global {
          * @class Traffic
          * @extends {TileLayer}
          */
-         class Traffic extends TileLayer {
+        class Traffic extends TileLayer {
             CLASS_NAME: string;
             constructor(opts?: TrafficLayerOptions);
             /**
@@ -6724,7 +6724,7 @@ declare global {
          * @public
          * @private
          */
-         class TrafficLayer extends Layer {
+        class TrafficLayer extends Layer {
 
 
 
@@ -6738,7 +6738,7 @@ declare global {
         /**
          * @public
          */
-        export  interface TrafficLayerOptions {
+        export interface TrafficLayerOptions {
 
 
 
@@ -6760,7 +6760,7 @@ declare global {
          * @public
          * @private
          */
-        export  const Util: {
+        export const Util: {
 
 
 
@@ -7007,12 +7007,12 @@ declare global {
          * vector
          * @public
          */
-        export  type Vector = number[];
+        export type Vector = number[];
 
         /**
          * @public
          */
-        export  type Vector2 = [number, number];
+        export type Vector2 = [number, number];
 
         /**
          * @public
@@ -7027,7 +7027,7 @@ declare global {
          * var circle = new AMap.circle({center: [116.4, 39.9], radius:1000});
          * layer.add(circle);
          */
-         class VectorLayer extends CoreVectorLayer implements BaseLayer {
+        class VectorLayer extends CoreVectorLayer implements BaseLayer {
             /**
              * 	添加矢量覆盖物到集合中，不支持添加重复的覆盖物
              * @name add
@@ -7109,7 +7109,7 @@ declare global {
          * @public
          * @private
          */
-         abstract class VectorOverlay extends DragObject implements IVectorOverlay {
+        abstract class VectorOverlay extends DragObject implements IVectorOverlay {
             _needUpdate: boolean;
             get CLASS_NAME(): OverlayType;
             className: OverlayType;
@@ -7391,7 +7391,7 @@ declare global {
          * @class VectorTraffic
          * @extends {CoreVectorTraffic}
          */
-         class VectorTraffic extends TrafficLayer {
+        class VectorTraffic extends TrafficLayer {
             CLASS_NAME: string;
             constructor(opts?: TrafficLayerOptions);
         }
@@ -7403,7 +7403,7 @@ declare global {
          * @interface WebService
          * @public
          */
-        export  class WebService {
+        export class WebService {
 
 
             /**
@@ -7487,7 +7487,7 @@ declare global {
          * @export
          * @public
          */
-         class WMS extends TileLayer {
+        class WMS extends TileLayer {
             CLASS_NAME: string;
             constructor(opts?: WMSLayerOptions);
 
@@ -7532,7 +7532,7 @@ declare global {
         /**
          * @public
          */
-        export  interface WMSLayerOptions {
+        export interface WMSLayerOptions {
 
 
 
@@ -7576,7 +7576,7 @@ declare global {
          * @extends {TileLayer}
          * @public
          */
-         class WMTS extends TileLayer {
+        class WMTS extends TileLayer {
             CLASS_NAME: string;
             constructor(opts?: WMTSLayerOptions);
 
@@ -7621,7 +7621,7 @@ declare global {
         /**
          * @public
          */
-        export  interface WMTSLayerOptions {
+        export interface WMTSLayerOptions {
 
 
 
@@ -7637,6 +7637,149 @@ declare global {
 
         export { }
 
+
+
+        /**
+         * @description plugins - 地点搜索服务，提供某一特定地区的位置查询服务
+         * https://lbs.amap.com/api/jsapi-v2/documentation#placesearch
+         */
+        export class PlaceSearch {
+            constructor(options?: PlaceSearchOptions);
+
+            /**
+             * 根据输入关键字提示匹配信息，支持中文、拼音
+             * @param keyword
+             * @param callback
+             */
+            search(keyword: string, callback: PlaceSearchSearchCallback): void;
+
+            /**
+             * 根据范围和关键词进行范围查询
+             * @param keyword
+             * @param bounds
+             * @param callback
+             */
+            searchInBounds(keyword: string, bounds: AMap.Bounds, callback: PlaceSearchSearchCallback): void;
+
+            /**
+             * 根据中心点经纬度、半径以及关键字进行周边查询 radius取值范围：0-50000
+             * @param keyword
+             * @param center
+             * @param radius
+             */
+            searchNearBy(keyword: string, center: AMap.LngLat, radius: number): void;
+
+            /**
+             * 根据PGUID 查询POI 详细信息
+             * @param PGUID
+             * @param callback
+             */
+            getDetails(PGUID: string, callback: PlaceSearchSearchCallback): void;
+
+            /**
+             * 设置查询类别，多个类别用“|”分割
+             * @param type
+             */
+            setType(type: string): void;
+
+            /**
+             * 设置显示查询结果页码
+             * @param pageIndex
+             */
+            setPageIndex(pageIndex: number): void;
+
+            /**
+             * 设置每页显示查询结果数量
+             * @param pageSize
+             */
+            setPageSize(pageSize: number): void;
+
+            /**
+             * 设置查询城市, 支持cityname（中文或中文全拼）、citycode、adcode
+             * @param city
+             */
+            setCity(city: string): void;
+
+            /**
+             * 设置是否强制限制城市
+             * @param citylimit
+             */
+            setCityLimit(citylimit: boolean): void;
+
+            /**
+             * 唤起高德地图客户端marker页
+             * @param p
+             * @param opts
+             */
+            poiOnAMAP(p: any, opts: object): void;
+
+            /**
+             * 唤起高德地图客户端POI详情页
+             * @param p
+             * @param opts
+             */
+            detailOnAMAP(p: any, opts: object): void;
+
+            on(type: string, fn: any, context?: any, once?: boolean): void;
+            off(type: string, fn: any, context?: any, once?: boolean): void;
+        }
+
+        interface PlaceSearchOptions {
+            city?: string;
+            citylimit?: boolean;
+            children?: number;
+            type?: string;
+            lang?: string;
+            pageSize?: number;
+            pageIndex?: number;
+            extensions?: string;
+            map?: AMap.Map;
+            panel?: string | HTMLElement;
+            showCover?: boolean;
+            renderStyle?: string;
+            autoFitView?: boolean;
+        }
+
+        interface PlaceSearchSearchCallback {
+            status: 'complete' | 'error' | 'no_data';
+            result: PlaceSearchSearchResult | string | 0;
+        }
+
+        interface PlaceSearchSearchResult {
+            info: string;
+            keywordList: Array<string>;
+            cityList: Array<{
+                name: string;
+                citycode: string;
+                adcode: string;
+                count: string;
+            }>;
+            poiList: {
+                pageIndex: number;
+                pageSize: number;
+                count: number;
+                pois: Array<{
+                    id: string;
+                    name: string;
+                    type: string;
+                    location: AMap.LngLat;
+                    address: string;
+                    distance: number;
+                    tel: string;
+                    website: string;
+                    pcode: string;
+                    citycode: string;
+                    adcode: string;
+                    postcode: string;
+                    pname: string;
+                    cityname: string;
+                    adname: string;
+                    email: string;
+                    entr_location: AMap.LngLat;
+                    exit_location: AMap.LngLat;
+                }>;
+            };
+        }
     }
 }
 export { };
